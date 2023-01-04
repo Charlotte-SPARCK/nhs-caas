@@ -1,0 +1,135 @@
+{% extends 'custom-layouts/caas-header-logged-in.html' %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block pageTitle %}
+  CaaS prototype
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block outerContent %}
+  {{ backLink({
+    "href": "add-demographic-rules",
+    "text": "Back",
+    "classes": "nhsuk-u-margin-top-4 nhsuk-u-margin-bottom-0"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+      
+    <h1 class="nhsuk-heading-xl">Add clinically assured condition groups</h1>
+
+    <p>Add the clinically assured groups needed to build your cohort by using the search bar below.</p>
+    <p>Visit the <a href="condition-group-library">condition group library</a> to review the condition group definitions. You will need to return to this page to add them.</p>
+
+    <div class="nhsuk-hub__search">
+      <div class="nhsuk-header__search-wrap nhsuk-hub__search-wrap" id="wrap-search">
+          
+        <form class="nhsuk-header__search-form nhsuk-hub__search-form" action="add-condition-group" method="get" id="search" role="search">
+          <label class="nhsuk-u-visually-hidden" for="search-field">
+            Search for a condition group by name or code
+          </label>
+
+          <!-- Search input field -->
+          <input autocomplete="off" class="autocomplete__input autocomplete__input--default nhsuk-hub__search-input" id="search-field" name="q" placeholder="Search for a condition group by name or code" type="text">
+
+          <!-- Search Button -->
+          <button class="nhsuk-search__submit nhsuk-hub__search-submit" type="submit">
+            <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
+            </svg>
+            <span class="nhsuk-u-visually-hidden">Search for a condition group by name or code</span>
+          </button>
+
+          <!-- Hidden input to store the value of search input -->
+          <input type="hidden" value="chronic" name="search">
+
+        </form> <!-- /. nhsuk-header__search-form -->
+      </div> <!-- /. nhsuk-header__search-wrap -->
+    </div> <!-- /. nhsuk-hub__search -->
+  </div> <!-- /. nhsuk-grid-column-two-thirds -->
+
+    <div class="nhsuk-grid-column-full">
+      <form action="add-condition-group-answer" method="POST">
+
+      {% if data['search'] === 'chronic' %}
+
+        <table class="nhsuk-table">
+          <thead role="rowgroup" class="nhsuk-table__head">
+            <tr role="row">
+              <th role="columnheader" class="" scope="col">
+                Condition group
+              </th>
+              <th role="columnheader" class="" scope="col">
+                Actions
+              </th>
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            <tr role="row" class="nhsuk-table__row">
+              <td class="nhsuk-table__cell" name="condition-group-1" value="{{ data['condition-group-1'] }}">
+                Chronic respiratory disease
+              </td>
+              <td class="nhsuk-table__cell ">
+                <a href="#" style="margin-right: 15px;">View</a>
+                <a href="javascript:void(0)" onclick="if(this.innerHTML =='Add to cohort'){this.innerHTML = 'Remove'}else{this.innerHTML = 'Add to cohort'}">Add to cohort</a>
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td class="nhsuk-table__cell" name="condition-group-2" value="{{ data['condition-group-2'] }}">
+                Chronic heart disease
+              </td>
+              <td class="nhsuk-table__cell ">
+                <a href="#" style="margin-right: 15px;">View</a>
+                <a href="javascript:void(0)" onclick="if(this.innerHTML =='Add to cohort'){this.innerHTML = 'Remove'}else{this.innerHTML = 'Add to cohort'} ">Add to cohort</a>
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td class="nhsuk-table__cell" name="condition-group-3" value="{{ data['condition-group-3'] }}">
+                Chronic kidney disease
+              </td>
+              <td class="nhsuk-table__cell ">
+                <a href="#" style="margin-right: 15px;">View</a>
+                <a href="javascript:void(0)" onclick="if(this.innerHTML =='Add to cohort'){this.innerHTML = 'Remove'}else{this.innerHTML = 'Add to cohort'}">Add to cohort</a>
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td class="nhsuk-table__cell" name="condition-group-4" value="{{ data['condition-group-4'] }}">
+                Chronic liver disease
+              </td>
+              <td class="nhsuk-table__cell ">
+                <a href="#" style="margin-right: 15px;">View</a>
+                <a href="javascript:void(0)" onclick="if(this.innerHTML =='Add to cohort'){this.innerHTML = 'Remove'}else{this.innerHTML = 'Add to cohort'}">Add to cohort</a>
+              </td>
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td class="nhsuk-table__cell" name="condition-group-5" value="{{ data['condition-group-5'] }}">
+                Chronic neurological disease
+              </td>
+              <td class="nhsuk-table__cell ">
+                <a href="#" style="margin-right: 15px;">View</a>
+                <a href="javascript:void(0)" onclick="if(this.innerHTML =='Add to cohort'){this.innerHTML = 'Remove'}else{this.innerHTML = 'Add to cohort'}">Add to cohort</a>
+              </td>
+            </tr>
+          </tbody> <!-- /. nhsuk-table__body -->
+        </table> <!-- /. nhsuk-tables -->
+
+      {% endif %}
+
+      <button class="nhsuk-button" type="submit">
+        Continue
+      </button>
+      <p>
+        <a href="cohort-hub-status-draft">Save and exit</a>
+      </p>
+
+    </div> <!-- /. nhsuk-grid-column-full -->
+  </form> <!-- /. form -->
+</div> <!-- /. nhsuk-grid-row -->
+
+{% endblock %}

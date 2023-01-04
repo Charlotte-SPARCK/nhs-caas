@@ -1,0 +1,502 @@
+{% extends 'custom-layouts/caas-header-logged-in.html' %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block pageTitle %}
+  CaaS prototype
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block outerContent %}
+  {{ backLink({
+    "href": "check-condition-groups",
+    "text": "Back",
+    "classes": "nhsuk-u-margin-top-4 nhsuk-u-margin-bottom-0"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+    <form action="#" method="get" role="form">
+
+      <h1 class="nhsuk-heading-xl">Check your cohort</h1>
+
+      <!-- Cohort Details -->
+  
+      <h2 class="nhsuk-heading-l">Cohort details</h2>
+  
+      <dl class="nhsuk-summary-list">
+        <div class="nhsuk-summary-list__row">
+  
+          <!-- Name of cohort -->
+  
+          <dt class="nhsuk-summary-list__key">Name of cohort</dt>
+          <dd class="nhsuk-summary-list__value">{{ data['name-of-cohort'] }}</dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a href="#" onclick="DeleteSummaryRow();" style="margin-right: 15px;">
+              Remove<span class="nhsuk-u-visually-hidden"> remove</span>
+            </a>
+            <a href="add-cohort-details">
+              Change<span class="nhsuk-u-visually-hidden"> name of cohort</span>
+            </a>
+          </dd>
+        </div>
+
+        <!-- Summary of cohort -->
+  
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">Summary of cohort</dt>
+          <dd class="nhsuk-summary-list__value">{{ data['summary-of-cohort'] }}</dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a href="#" onclick="DeleteSummaryRow();" style="margin-right: 15px;">
+              Remove<span class="nhsuk-u-visually-hidden"> remove</span>
+            </a>
+            <a href="add-cohort-details">
+              Change<span class="nhsuk-u-visually-hidden"> summary of cohort</span>
+            </a>
+          </dd>
+        </div>
+        
+        <!-- Name of commissioner -->
+  
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">Name of commissioner</dt>
+          <dd class="nhsuk-summary-list__value">{{ data['name-of-commissioner'] }}</dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a href="#" onclick="DeleteSummaryRow();" style="margin-right: 15px;">
+              Remove<span class="nhsuk-u-visually-hidden"> remove</span>
+            </a>
+            <a href="add-cohort-details">
+              Change<span class="nhsuk-u-visually-hidden"> name of commissioner</span>
+            </a>
+          </dd>
+        </div>
+
+        <!-- Name of author -->
+  
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">Name of author</dt>
+          <dd class="nhsuk-summary-list__value">{{ data['name-of-author'] }}</dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a href="#" onclick="DeleteSummaryRow();" style="margin-right: 15px;">
+              Remove<span class="nhsuk-u-visually-hidden"> remove</span>
+            </a>
+            <a href="add-cohort-details">
+              Change<span class="nhsuk-u-visually-hidden"> name of author</span>
+            </a>
+          </dd>
+        </div>
+
+      </dl>
+
+      <!-- Demographic details -->
+  
+      <h2 class="nhsuk-heading-l">Demographic rules</h2>
+  
+      <dl class="nhsuk-summary-list">
+
+        <!-- Minimum age -->
+
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">Minimum age</dt>
+          <dd class="nhsuk-summary-list__value">
+
+            {% if data['age-min-years'] %}
+              {{ data['age-min-years'] }} year(s)
+            {% elif data['age-min-months'] %}
+              {{ data['age-min-months'] }} month(s)
+            {% else %}
+              {{ data['not-applicable-min-age'] }}
+            {% endif %}
+
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a href="#" onclick="DeleteSummaryRow();" style="margin-right: 15px;">
+              Remove<span class="nhsuk-u-visually-hidden"> remove</span>
+            </a>
+            <a href="add-demographic-rules">
+              Change<span class="nhsuk-u-visually-hidden"> minimum age</span>
+            </a>
+          </dd>
+        </div>
+
+        <!-- Maximum age -->
+
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">Maximum age</dt>
+          <dd class="nhsuk-summary-list__value">
+
+            {% if data['age-max-years'] %}
+              {{ data['age-max-years'] }} year(s)
+            {% elif data['age-max-months'] %}
+              {{ data['age-max-months'] }} month(s)
+            {% else %}
+              {{ data['not-applicable-max-age'] }}
+            {% endif %}
+
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a href="#" onclick="DeleteSummaryRow();" style="margin-right: 15px;">
+              Remove<span class="nhsuk-u-visually-hidden"> remove</span>
+            </a>
+            <a href="add-demographic-rules">
+                Change<span class="nhsuk-u-visually-hidden"> maximum age</span>
+            </a>
+          </dd>
+        </div>
+
+        <!-- Location -->
+
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">Location</dt>
+          <dd class="nhsuk-summary-list__value">Everyone registered with a GP in England</dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a href="#" onclick="DeleteSummaryRow();" style="margin-right: 15px;">
+              Remove<span class="nhsuk-u-visually-hidden"> remove</span>
+            </a>
+            <a href="add-demographic-rules">
+                Change<span class="nhsuk-u-visually-hidden"> everyone registered with a gp in england</span>
+            </a>
+          </dd>
+        </div>
+
+        <!-- Sex at Birth -->
+
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">Sex at birth</dt>
+          <dd class="nhsuk-summary-list__value">{{ data['sex-at-birth'] }} {{ data['not-applicable-sex'] }}</dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a href="#" onclick="DeleteSummaryRow();" style="margin-right: 15px;">
+              Remove<span class="nhsuk-u-visually-hidden"> remove</span>
+            </a>
+            <a href="add-demographic-rules">
+                Change<span class="nhsuk-u-visually-hidden"> sex at birth</span>
+            </a>
+          </dd>
+        </div>
+
+        <!-- Ethnicity -->
+
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">Ethnicity</dt>
+          <dd class="nhsuk-summary-list__value">
+
+            <!-- Asian -->
+
+            {% if data['ethnicity-asian-1'] %}
+              {{ data['ethnicity-asian-1'] }}
+              <br>
+            {% endif %}
+
+            {% if data['ethnicity-asian-2'] %}
+              {{ data['ethnicity-asian-2'] }}
+              <br>
+            {% endif %}
+
+            {% if data['ethnicity-asian-3'] %}
+              {{ data['ethnicity-asian-3'] }}
+              <br>
+            {% endif %}
+
+            {% if data['ethnicity-asian-4'] %}
+              {{ data['ethnicity-asian-4'] }}
+              <br>
+            {% endif %}
+
+            {% if data['ethnicity-asian-5'] %}
+              {{ data['ethnicity-asian-5'] }}
+              <br>
+            {% endif %}
+
+            <!-- Black -->
+
+            {% if data['ethnicity-black-1'] %}
+              {{ data['ethnicity-black-1'] }}
+              <br>
+            {% endif %}
+
+            {% if data['ethnicity-black-2'] %}
+              {{ data['ethnicity-black-2'] }}
+              <br>
+            {% endif %}
+
+            {% if data['ethnicity-black-3'] %}
+              {{ data['ethnicity-black-3'] }}
+              <br>
+            {% endif %}
+
+            <!-- Mixed -->
+
+            {% if data['ethnicity-mixed-1'] %}
+              {{ data['ethnicity-mixed-1'] }}
+              <br>
+            {% endif %}
+
+            {% if data['ethnicity-mixed-2'] %}
+              {{ data['ethnicity-mixed-2'] }}
+              <br>
+            {% endif %}
+
+            {% if data['ethnicity-mixed-3'] %}
+              {{ data['ethnicity-mixed-3'] }}
+              <br>
+            {% endif %}
+
+            {% if data['ethnicity-mixed-4'] %}
+              {{ data['ethnicity-mixed-4'] }}
+              <br>
+            {% endif %}
+
+            <!-- White -->
+
+            {% if data['ethnicity-white-1'] %}
+              {{ data['ethnicity-white-1'] }}
+              <br>
+            {% endif %}
+
+            {% if data['ethnicity-white-2'] %}
+              {{ data['ethnicity-white-2'] }}
+              <br>
+            {% endif %}
+
+            {% if data['ethnicity-white-3'] %}
+              {{ data['ethnicity-white-3'] }}
+              <br>
+            {% endif %}
+
+            {% if data['ethnicity-white-4'] %}
+              {{ data['ethnicity-white-4'] }}
+              <br>
+            {% endif %}
+
+            {% if data['ethnicity-white-5'] %}
+              {{ data['ethnicity-white-5'] }}
+              <br>
+            {% endif %}
+
+            <!-- Other -->
+
+            {% if data['ethnicity-other-1'] %}
+              {{ data['ethnicity-other-1'] }}
+              <br>
+            {% endif %}
+
+            {% if data['ethnicity-other-2'] %}
+              {{ data['ethnicity-other-2'] }}
+              <br>
+            {% endif %}
+
+            <!-- All -->
+
+            {% if data['all-ethnicity'] %}
+            
+            {{ data['ethnicity-asian-1'] }}
+            <br>
+            {{ data['ethnicity-asian-2'] }}
+            <br>
+            {{ data['ethnicity-asian-3'] }}
+            <br>
+            {{ data['ethnicity-asian-4'] }}
+            <br>
+            {{ data['ethnicity-asian-5'] }}
+            <br>
+            {{ data['ethnicity-black-1'] }}
+            <br>
+            {{ data['ethnicity-black-2'] }}
+            <br>
+            {{ data['ethnicity-black-3'] }}
+            <br>
+            {{ data['ethnicity-mixed-1'] }}
+            <br>
+            {{ data['ethnicity-mixed-2'] }}
+            <br>
+            {{ data['ethnicity-mixed-3'] }}
+            <br>
+            {{ data['ethnicity-mixed-4'] }}
+            <br>
+            {{ data['ethnicity-white-1'] }}
+            <br>
+            {{ data['ethnicity-white-2'] }}
+            <br>
+            {{ data['ethnicity-white-3'] }}
+            <br>
+            {{ data['ethnicity-white-4'] }}
+            <br>
+            {{ data['ethnicity-white-5'] }}
+            <br>
+            {{ data['ethnicity-other-1'] }}
+            <br>
+            {{ data['ethnicity-other-2'] }}
+
+            {% endif %}
+
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a href="#" onclick="DeleteSummaryRow();" style="margin-right: 15px;">
+              Remove<span class="nhsuk-u-visually-hidden"> remove</span>
+            </a>
+            <a href="add-demographic-rules">
+              Change<span class="nhsuk-u-visually-hidden"> ethnicity</span>
+            </a>
+          </dd>
+
+        </div> <!-- /. nhsuk-summary-list-row -->
+      </dl> <!-- /. nhsuk-summary-list -->
+
+      <!-- Condition Group -->
+  
+      <h2 class="nhsuk-heading-l">Condition groups</h2>
+  
+      <dl class="nhsuk-summary-list">
+        <div class="nhsuk-summary-list__row">
+
+        <!-- Condition Group 1 -->
+
+          <dt class="nhsuk-summary-list__key">Chronic respiratory disease</dt>
+          <dd class="nhsuk-summary-list__value">
+            <details class="nhsuk-details">
+              <summary class="nhsuk-details__summary">
+                <span class="nhsuk-details__summary-text">
+                  7 clinical rules applied
+                </span>
+              </summary>
+              <div class="nhsuk-details__text">
+                <ul class="nhsuk-list nhsuk-list--bullet">
+                  <li>asthma diagnosis and Asthma treatment (inhaled steroids)</li>
+                  <li>asthma diagnosis and 2x asthma treatments (oral steroids). In previous 24 months</li>
+                  <li>patient has CRD</li>
+                  <li>patient has lower respiratory tract disease</li>
+                  <li>asplenia or dysfunction of the spleen between the ages of 5 and 15</li>
+                  <li>emergency hospital admission due to Asthma</li>
+                  <li>patient has a steroid prescription</li>
+                </ul>
+              </div>
+            </details>
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a href="#" onclick="DeleteSummaryRow();" style="margin-right: 15px;">
+              Remove<span class="nhsuk-u-visually-hidden"> remove</span>
+            </a>
+            <a href="add-condition-group">
+              Change<span class="nhsuk-u-visually-hidden"> change</span>
+            </a>
+          </dd>
+        </div>
+
+        <!-- Condition Group 2 -->
+  
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">Chronic heart disease</dt>
+          <dd class="nhsuk-summary-list__value">
+            <details class="nhsuk-details">
+              <summary class="nhsuk-details__summary">
+                <span class="nhsuk-details__summary-text">
+                  1 clinical rules applied
+                </span>
+              </summary>
+            </details>
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a href="#" onclick="DeleteSummaryRow();" style="margin-right: 15px;">
+              Remove<span class="nhsuk-u-visually-hidden"> remove</span>
+            </a>
+            <a href="add-cohort-details">
+              Change<span class="nhsuk-u-visually-hidden"> summary of cohort</span>
+            </a>
+          </dd>
+        </div>
+        
+        <!-- Condition Group 3 -->
+  
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">Chronic kidney disease</dt>
+          <dd class="nhsuk-summary-list__value">
+            <details class="nhsuk-details">
+              <summary class="nhsuk-details__summary">
+                <span class="nhsuk-details__summary-text">
+                  2 clinical rules applied
+                </span>
+              </summary>
+            </details>
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a href="#" onclick="DeleteSummaryRow();" style="margin-right: 15px;">
+              Remove<span class="nhsuk-u-visually-hidden"> remove</span>
+            </a>
+            <a href="add-cohort-details">
+              Change<span class="nhsuk-u-visually-hidden"> summary of cohort</span>
+            </a>
+          </dd>
+        </div>
+
+        <!-- Condition group 4 -->
+  
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">Chronic liver disease</dt>
+          <dd class="nhsuk-summary-list__value"></dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a href="#" onclick="DeleteSummaryRow();" style="margin-right: 15px;">
+              Remove<span class="nhsuk-u-visually-hidden"> remove</span>
+            </a>
+            <a href="add-condition-group">
+              Change<span class="nhsuk-u-visually-hidden"> change</span>
+            </a>
+          </dd>
+        </div>
+
+        <!-- Condition group 5 -->
+  
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">Chronic neurological disease</dt>
+          <dd class="nhsuk-summary-list__value"></dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a href="#" onclick="DeleteSummaryRow();" style="margin-right: 15px;">
+              Remove<span class="nhsuk-u-visually-hidden"> remove</span>
+            </a>
+            <a href="add-condition-group">
+              Change<span class="nhsuk-u-visually-hidden"> change</span>
+            </a>
+          </dd>
+
+        </div>
+      </dl>
+
+      <!-- Assurance -->
+  
+      <h2 class="nhsuk-heading-l">Assurance</h2>
+  
+      <dl class="nhsuk-summary-list">
+        <div class="nhsuk-summary-list__row">
+  
+          <!-- Name of cohort -->
+  
+          <dt class="nhsuk-summary-list__key">DPIA</dt>
+          <dd class="nhsuk-summary-list__value"></dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a href="#" onclick="DeleteSummaryRow();" style="margin-right: 15px;">
+              Remove<span class="nhsuk-u-visually-hidden"> remove</span>
+            </a>
+            <a href="#">
+              Change<span class="nhsuk-u-visually-hidden"> name of cohort</span>
+            </a>
+          </dd>
+
+        </div>
+      </dl>
+
+      <!-- Page Actions -->
+  
+      <button class="nhsuk-button" type="submit">Continue</button>
+      <p>
+        <a href="cohort-manager-draft">Save and exit</a>
+      </p>
+
+    </form> <!-- /. nhsuk-form -->
+  </div> <!-- /. nhsuk-grid-column-full -->
+</div> <!-- /. nhsuk-grid-row -->
+
+{% endblock %}

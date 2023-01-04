@@ -1,0 +1,617 @@
+{% extends 'custom-layouts/caas-header-logged-in.html' %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block pageTitle %}
+  CaaS prototype
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block outerContent %}
+  {{ backLink({
+    "href": "add-condition-group",
+    "text": "Back",
+    "classes": "nhsuk-u-margin-top-4 nhsuk-u-margin-bottom-0"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <form action="#" method="POST">
+      <div class="nhsuk-width-container">
+        <main class="nhsuk-main-wrapper" id="maincontent" role="main">
+          <div class="nhsuk-grid-row">
+            <div class="nhsuk-grid-column-full">
+      
+              <h1>Condition group library</h1>
+
+              <!-- A - Z Links -->
+      
+              <nav class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4" id="nhsuk-nav-a-z" role="navigation" aria-label="A to Z Navigation">
+                <ol class="nhsuk-list nhsuk-u-clear nhsuk-u-margin-0" role="list">
+
+                  <!-- A -->
+
+                  <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+                    <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#A">
+                      A
+                    </a>
+                  </li>
+
+                  <!-- B -->
+
+                  <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">B</span>
+                  </li>
+
+                  <!-- C -->
+
+                  <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+                    <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#C">
+                      C
+                    </a>
+                  </li>
+
+                  <!-- D -->
+
+                  <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+                    <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#D">
+                      D
+                    </a>
+                  </li>
+
+                  <!-- E -->
+
+                  <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">E</span>
+                  </li>
+
+                  <!-- F -->
+
+                  <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">F</span>
+                  </li>
+
+                  <!-- G -->
+
+                  <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">G</span>
+                  </li>
+
+                  <!-- H -->
+
+                  <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+                    <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#H">
+                      H
+                    </a>
+                  </li>
+                  
+                  <!-- I -->
+                  
+                  <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+                    <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#I">
+                      I
+                    </a>
+                  </li>
+
+                  <!-- J -->
+
+                  <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">J</span>
+                  </li>
+
+                  <!-- K -->
+                  
+                  <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">K</span>
+                  </li>
+
+                  <!-- L -->
+
+                  <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">L</span>
+                  </li>
+
+                  <!-- M -->
+
+                  <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+                    <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#M">
+                      M
+                    </a>
+                  </li>
+
+                  <!-- N -->
+
+                  <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">N</span>
+                  </li>
+
+
+                  <!-- O -->
+
+                  <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">O</span>
+                  </li>
+
+                  <!-- P -->
+
+                  <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+                    <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#P">
+                      P
+                    </a>
+                  </li>
+
+                  <!-- Q -->
+
+                  <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">Q</span>
+                  </li>
+
+                  <!-- R -->
+
+                  <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+                    <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#R">
+                      R
+                    </a>
+                  </li>
+
+                  <!-- S -->
+
+                  <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+                    <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#S">
+                      S
+                    </a>
+                  </li>
+
+                  <!-- T -->
+
+                  <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">T</span>
+                  </li>
+
+                  <!-- U -->
+
+                  <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">U</span>
+                  </li>
+
+                  <!-- V -->
+
+                  <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">V</span>
+                  </li>
+
+                  <!-- W -->
+
+                  <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">W</span>
+                  </li>
+
+                  <!-- X -->
+
+                  <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">X</span>
+                  </li>
+
+                  <!-- Y -->
+
+                  <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">Y</span>
+                  </li>
+
+                  <!-- Z -->
+
+                  <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">Z</span>
+                  </li>
+
+                </ol> <!-- /. nhsuk-list -->
+              </nav> <!-- /. navgiation -->
+
+              <!-- List Items -->
+
+              <!-- A -->
+      
+              <div class="nhsuk-card nhsuk-card--feature">
+                <div class="nhsuk-card__content nhsuk-card__content--feature">
+                  <h2 id="A" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+                    A
+                  </h2>
+                  <ul class="nhsuk-list nhsuk-list--border">
+                    <li>
+                      <a href="#">Asplenia or dysfunction of the spleen</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- B -->
+      
+              <div class="nhsuk-card nhsuk-card--feature">
+                <div class="nhsuk-card__content nhsuk-card__content--feature">
+                  <h2 id="B" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+                    B
+                  </h2>
+                  <ul class="nhsuk-list nhsuk-list--border">
+                    <li>There are currently no conditions listed</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- C -->
+      
+              <div class="nhsuk-card nhsuk-card--feature">
+                <div class="nhsuk-card__content nhsuk-card__content--feature">
+                  <h2 id="C" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+                    C
+                  </h2>
+                  <ul class="nhsuk-list nhsuk-list--border">
+                    <li>
+                      <a href="#">Chronic heart disease</a>
+                    </li>
+                    <li>
+                      <a href="#">Chronic kidney disease</a>
+                    </li>
+                    <li>
+                      <a href="#">Chronic liver disease</a>
+                    </li>
+                    <li>
+                      <a href="#">Chronic neurological disease (included in the DES directions for Wales)</a>
+                    </li>
+                    <li>
+                      <a href="#">Chronic respiratory disease</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- D -->
+      
+              <div class="nhsuk-card nhsuk-card--feature">
+                <div class="nhsuk-card__content nhsuk-card__content--feature">
+                  <h2 id="D" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+                    D
+                  </h2>
+                  <ul class="nhsuk-list nhsuk-list--border">
+                    <li>
+                      <a href="#">Diabetes</a>
+                    </li>
+                    <li>
+                      <a href="#">Down’s syndrome</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- E -->
+      
+              <div class="nhsuk-card nhsuk-card--feature">
+                <div class="nhsuk-card__content nhsuk-card__content--feature">
+                  <h2 id="E" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+                    E
+                  </h2>
+                  <ul class="nhsuk-list nhsuk-list--border">
+                    <li>There are currently no conditions listed</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- F -->
+
+              <div class="nhsuk-card nhsuk-card--feature">
+                <div class="nhsuk-card__content nhsuk-card__content--feature">
+                  <h2 id="F" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+                    F
+                  </h2>
+                  <ul class="nhsuk-list nhsuk-list--border">
+                    <li>There are currently no conditions listed</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- G -->
+
+              <div class="nhsuk-card nhsuk-card--feature">
+                <div class="nhsuk-card__content nhsuk-card__content--feature">
+                  <h2 id="G" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+                    G
+                  </h2>
+                  <ul class="nhsuk-list nhsuk-list--border">
+                    <li>There are currently no conditions listed</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- H -->
+
+              <div class="nhsuk-card nhsuk-card--feature">
+                <div class="nhsuk-card__content nhsuk-card__content--feature">
+                  <h2 id="H" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+                    H
+                  </h2>
+                  <ul class="nhsuk-list nhsuk-list--border">
+                    <li>
+                      <a href="#">HIV and AIDS</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- I -->
+
+              <div class="nhsuk-card nhsuk-card--feature">
+                <div class="nhsuk-card__content nhsuk-card__content--feature">
+                  <h2 id="I" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+                    I
+                  </h2>
+                  <ul class="nhsuk-list nhsuk-list--border">
+                    <li>
+                      <a href="#">
+                        Immunosuppression (see contraindications and precautions section on live attenuated influenza vaccine)
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- J -->
+      
+              <div class="nhsuk-card nhsuk-card--feature">
+                <div class="nhsuk-card__content nhsuk-card__content--feature">
+                  <h2 id="J" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+                    J
+                  </h2>
+                  <ul class="nhsuk-list nhsuk-list--border">
+                    <li>There are currently no conditions listed</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- K -->
+      
+              <div class="nhsuk-card nhsuk-card--feature">
+                <div class="nhsuk-card__content nhsuk-card__content--feature">
+                  <h2 id="K" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+                    K
+                  </h2>
+                  <ul class="nhsuk-list nhsuk-list--border">
+                    <li>There are currently no conditions listed</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- L -->
+      
+              <div class="nhsuk-card nhsuk-card--feature">
+                <div class="nhsuk-card__content nhsuk-card__content--feature">
+                  <h2 id="L" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+                    L
+                  </h2>
+                  <ul class="nhsuk-list nhsuk-list--border">
+                    <li>There are currently no conditions listed</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- M -->
+      
+              <div class="nhsuk-card nhsuk-card--feature">
+                <div class="nhsuk-card__content nhsuk-card__content--feature">
+                  <h2 id="M" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+                    M
+                  </h2>
+                  <ul class="nhsuk-list nhsuk-list--border">
+                    <li>
+                      <a href="#">Morbid obesity (class III obesity)</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- N -->
+      
+              <div class="nhsuk-card nhsuk-card--feature">
+                <div class="nhsuk-card__content nhsuk-card__content--feature">
+                  <h2 id="N" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+                    N
+                  </h2>
+                  <ul class="nhsuk-list nhsuk-list--border">
+                    <li>There are currently no conditions listed</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- O -->
+      
+              <div class="nhsuk-card nhsuk-card--feature">
+                <div class="nhsuk-card__content nhsuk-card__content--feature">
+                  <h2 id="O" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+                    O
+                  </h2>
+                  <ul class="nhsuk-list nhsuk-list--border">
+                    <li>There are currently no conditions listed</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- P -->
+
+              <div class="nhsuk-card nhsuk-card--feature">
+                <div class="nhsuk-card__content nhsuk-card__content--feature">
+                  <h2 id="P" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+                    P
+                  </h2>
+                  <ul class="nhsuk-list nhsuk-list--border">
+                    <li>
+                      <a href="#">Patients with a liver transplant</a>
+                    </li>
+                    <li>
+                      <a href="#">Patients with a solid cancer</a>
+                    </li>
+                    <li>
+                      <a href="#">Patients with haematologic disease</a>
+                    </li>
+                    <li>
+                      <a href="#">Patients with immune-mediated inflammatory disorders (IMID)</a>
+                    </li>
+                    <li>
+                      <a href="#">Patients with liver disease</a>
+                    </li>
+                    <li>
+                      <a href="#">Patients with renal disease</a>
+                    </li>
+                    <li>
+                      <a href="#">Pregnant women</a>
+                    </li>
+                    <li>
+                      <a href="#">Primary immune deficiencies</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Q -->
+
+              <div class="nhsuk-card nhsuk-card--feature">
+                <div class="nhsuk-card__content nhsuk-card__content--feature">
+                  <h2 id="Q" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+                    Q
+                  </h2>
+                  <ul class="nhsuk-list nhsuk-list--border">
+                    <li>There are currently no conditions listed</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- R -->
+
+              <div class="nhsuk-card nhsuk-card--feature">
+                <div class="nhsuk-card__content nhsuk-card__content--feature">
+                  <h2 id="R" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+                    R
+                  </h2>
+                  <ul class="nhsuk-list nhsuk-list--border">
+                    <li>
+                      <a href="#">Rare neurological conditions</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- S -->
+
+              <div class="nhsuk-card nhsuk-card--feature">
+                <div class="nhsuk-card__content nhsuk-card__content--feature">
+                  <h2 id="S" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+                    S
+                  </h2>
+                  <ul class="nhsuk-list nhsuk-list--border">
+                    <li>
+                      <a href="#">Solid organ transplant recipients</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- T -->
+
+              <div class="nhsuk-card nhsuk-card--feature">
+                <div class="nhsuk-card__content nhsuk-card__content--feature">
+                  <h2 id="T" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+                    T
+                  </h2>
+                  <ul class="nhsuk-list nhsuk-list--border">
+                    <li>There are currently no conditions listed</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- U -->
+
+              <div class="nhsuk-card nhsuk-card--feature">
+                <div class="nhsuk-card__content nhsuk-card__content--feature">
+                  <h2 id="U" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+                    U
+                  </h2>
+                  <ul class="nhsuk-list nhsuk-list--border">
+                    <li>There are currently no conditions listed</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- V -->
+
+              <div class="nhsuk-card nhsuk-card--feature">
+                <div class="nhsuk-card__content nhsuk-card__content--feature">
+                  <h2 id="V" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+                    V
+                  </h2>
+                  <ul class="nhsuk-list nhsuk-list--border">
+                    <li>There are currently no conditions listed</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- W -->
+
+              <div class="nhsuk-card nhsuk-card--feature">
+                <div class="nhsuk-card__content nhsuk-card__content--feature">
+                  <h2 id="W" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+                    W
+                  </h2>
+                  <ul class="nhsuk-list nhsuk-list--border">
+                    <li>There are currently no conditions listed</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- X -->
+
+              <div class="nhsuk-card nhsuk-card--feature">
+                <div class="nhsuk-card__content nhsuk-card__content--feature">
+                  <h2 id="X" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+                    X
+                  </h2>
+                  <ul class="nhsuk-list nhsuk-list--border">
+                    <li>There are currently no conditions listed</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Y -->
+
+              <div class="nhsuk-card nhsuk-card--feature">
+                <div class="nhsuk-card__content nhsuk-card__content--feature">
+                  <h2 id="Y" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+                    Y
+                  </h2>
+                  <ul class="nhsuk-list nhsuk-list--border">
+                    <li>There are currently no conditions listed</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Z -->
+
+              <div class="nhsuk-card nhsuk-card--feature">
+                <div class="nhsuk-card__content nhsuk-card__content--feature">
+                  <h2 id="Z" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+                    Z
+                  </h2>
+                  <ul class="nhsuk-list nhsuk-list--border">
+                    <li>There are currently no conditions listed</li>
+                  </ul>
+                </div>
+              </div>
+      
+            </div> <!-- /. nhsuk-grid-column-full -->
+          </div> <!-- nhsuk-grid-row -->
+        </main> <!-- /. nhsuk-main-wrapper -->
+      </div> <!-- /. nhsuk-width-container -->
+    </form> <!-- /. form -->
+  </div> <!-- /. nhsuk-grid-row -->
+
+{% endblock %}

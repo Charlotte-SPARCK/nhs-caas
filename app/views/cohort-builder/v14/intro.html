@@ -1,0 +1,81 @@
+{% extends 'custom-layouts/caas-header.html' %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block pageTitle %}
+  CaaS prototype
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block outerContent %}
+  {{ backLink({
+    "href": "../v14/landing-page",
+    "text": "Back",
+    "classes": "nhsuk-u-margin-top-4 nhsuk-u-margin-bottom-0"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="cis2-login" method="POST">
+      
+        <h1 class="nhsuk-heading-xl">Cohorting as a Service</h1>
+      
+        <!-- Our service -->
+  
+        <h2 class="nhsuk-heading-l">Our service</h2>
+        <p>Cohorting as a Service allows you to identify people that need direct care by creating population health cohorts (groups) from clinically assurred condition groups and specific demographics. </p>
+  
+        <!-- Inset -->
+  
+        <div class="nhsuk-inset-text">
+          <span class="nhsuk-u-visually-hidden">Information: </span>
+          <p>Our service is currently only suitable for direct care. This is defined in the Information Governance Review as "a clinical, social or public health activity that involves the prevention, investigation and treatment of illness and the alleviation of suffering of an identified individual."</p>
+        </div>
+
+        <!-- Building a cohort -->
+        
+        <h2 class="nhsuk-heading-l">Logging in</h2>
+        <p>To login you must:</p>
+        <ul class="nhsuk-list nhsuk-list--bullet">
+          <li>have access to a smartcard</li>
+          <li>have access to Edge 88 (Windows only) or Chrome 88</li>
+        </ul>
+  
+        <!-- Building a cohort -->
+        
+        <h2 class="nhsuk-heading-l">Building a cohort</h2>
+        <p>You will build a cohort by adding:</p>
+        <ul class="nhsuk-list nhsuk-list--bullet">
+          <li>the cohort name and purpose</li>
+          <li>the demographic rules</li>
+          <li>the clinically assured condition groups</li>
+          <li>the clinical rules</li>
+        </ul>
+  
+        <!-- Submitting a cohort -->
+  
+        <h2 class="nhsuk-heading-l">Submitting a cohort</h2>
+        <p>When you have provided all the information on the cohort, you will be able to:</p>
+        <ul class="nhsuk-list nhsuk-list--bullet">
+          <li>save a draft cohort</li>
+          <li>preview the cohort before publishing</li>
+          <li>submit the cohort for assurance</li>
+        </ul>
+  
+        <!-- Page actions -->
+
+        <button class="nhsuk-button" type="submit">
+          Start now
+        </button>
+
+      </form> <!-- /. form -->
+    </div> <!-- /. nhsuk-grid-column-two-thirds -->
+  </div> <!-- /. nhsuk-grid-row -->
+
+{% endblock %}

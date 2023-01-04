@@ -1,0 +1,122 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!-- 
+  In /views/layout.html you can:
+    - change the header and footer 
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title -->
+{% block pageTitle %} CaaS Prototype {% endblock %}
+
+<!-- For adding a breadcrumb -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs -->
+{% block beforeContent %} {% endblock %}
+
+<!-- For adding a back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block outerContent %} {% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+    <!-- Change the page title here -->
+
+    <p class="nhsuk-u-font-size-24 h1-caption">Cohorting as a Service</p>
+    <h1>CaaS Prototype</h1>
+
+    <p class="nhsuk-body-l">
+      Home for CaaS prototypes used in usability sessions and demos.
+    </p>
+  </div>
+  <!-- /. nhsuk-grid-column-two-thirds-->
+
+  <div class="nhsuk-grid-column-one-third">
+    <div class="key-links-container">
+      <h4>Key links</h4>
+      <hr
+        class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible"
+      />
+      <a href="#" target="_blank">Figma - Build a cohort</a>
+    </div>
+    <!-- /. key-links-container -->
+  </div>
+  <!-- /. nhsuk-grid-column-one-third -->
+
+  <div class="nhsuk-grid-column-full">
+    <ul class="nhsuk-grid-row nhsuk-card-group">
+
+      <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+        <div class="nhsuk-card nhsuk-card--clickable">
+          <div class="nhsuk-card__content">
+            <h2 class="nhsuk-card__heading nhsuk-heading-m">
+              <a class="nhsuk-card__link" href="cohort-builder/index">Build a cohort</a>
+            </h2>
+            <p class="nhsuk-card__description">
+              A place for people to create, build and edit cohorts - users can also submit a cohort for assurance as well as publishing a cohort.
+            </p>
+          </div>
+        </div>
+      </li>
+
+      <!-- 
+
+      <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+        <div class="nhsuk-card nhsuk-card--clickable">
+          <div class="nhsuk-card__content">
+            <h2 class="nhsuk-card__heading nhsuk-heading-m">
+              <a class="nhsuk-card__link" href="#"
+                >Help from social services and charities</a
+              >
+            </h2>
+            <p class="nhsuk-card__description">
+              Includes helplines, needs assessments, advocacy and reporting
+              abuse
+            </p>
+          </div>
+        </div>
+      </li>
+
+      <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+        <div class="nhsuk-card nhsuk-card--clickable">
+          <div class="nhsuk-card__content">
+            <h2 class="nhsuk-card__heading nhsuk-heading-m">
+              <a class="nhsuk-card__link" href="#">Money, work and benefits</a>
+            </h2>
+            <p class="nhsuk-card__description">
+              How to pay for care and support, and where you can get help with
+              costs
+            </p>
+          </div>
+        </div>
+      </li>
+
+      <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+        <div class="nhsuk-card nhsuk-card--clickable">
+          <div class="nhsuk-card__content">
+            <h2 class="nhsuk-card__heading nhsuk-heading-m">
+              <a class="nhsuk-card__link" href="#"
+                >Care after a hospital stay</a
+              >
+            </h2>
+            <p class="nhsuk-card__description">
+              Includes hospital discharge and care and support afterwards
+            </p>
+          </div>
+        </div>
+      </li>
+
+      -->
+
+    </ul>
+  </div>
+  <!-- /. nhsuk-grid-column-two-thirds-->
+</div>
+<!-- /. nhsuk-grid-row -->
+{% endblock %}

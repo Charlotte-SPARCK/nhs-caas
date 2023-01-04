@@ -1,0 +1,46 @@
+{% extends 'custom-layouts/caas-header-logged-in.html' %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block pageTitle %}
+  CaaS prototype
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block outerContent %}
+
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <form action="cohort-hub" method="POST">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1 class="nhsuk-heading-xl">Cohort manager</h1>
+
+        <p class="nhsuk-body-l">Placeholder</p>
+
+        <ul class="nhsuk-grid-row nhsuk-card-group">
+          <li class="nhsuk-grid-column-full nhsuk-card-group__item">
+        
+            <div class="nhsuk-card nhsuk-card--clickable">
+              <div class="nhsuk-card__content">
+                <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                  <a class="nhsuk-card__link" href="cohort-hub">Build a cohort</a>
+                </h2>
+                <p class="nhsuk-card__description">
+                  You can edit, clone or build a new cohort. Submit cohorts for assurance publishing.
+                </p>
+              </div>
+            </div>
+        
+          </li>
+        </ul>
+
+      </div> <!-- /. nhsuk-grid-column-two-thirds -->
+    </form> <!-- /. form -->
+  </div> <!-- /. nhsuk-grid-row -->
+
+{% endblock %}

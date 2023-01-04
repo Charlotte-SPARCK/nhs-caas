@@ -1,0 +1,40 @@
+{% extends 'custom-layouts/caas-header-logged-in.html' %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block pageTitle %}
+  CaaS prototype
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block outerContent %}
+
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <form action="add-cohort-details" method="POST">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1 class="nhsuk-heading-xl">Cohort manager</h1>
+        <p class="nhsuk-body-l">Use the cohort manager to build a new cohort, or edit and clone existing cohorts using the actions below.</p>
+
+        <p>To build a new cohort you will need:</p>
+        <ul class="nhsuk-list nhsuk-list--bullet">
+          <li>a meaningful name</li>
+          <li>demographic rules</li>
+        </ul>
+
+        <p>Your cohorts will be displayed here, build a new cohort to get started.</p>
+
+        <button class="nhsuk-button" type="submit">
+          Build a cohort
+        </button>
+
+      </div> <!-- /. nhsuk-grid-column-two-thirds -->
+    </form> <!-- /. form -->
+  </div> <!-- /. nhsuk-grid-row -->
+
+{% endblock %}

@@ -1,0 +1,93 @@
+{% extends 'layout.html' %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block pageTitle %}
+  CaaS prototype
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block outerContent %}
+  {{ backLink({
+    "href": "/index",
+    "text": "Back to: Home",
+    "classes": "nhsuk-u-margin-top-4 nhsuk-u-margin-bottom-0"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Build a cohort prototype versions</h1>
+
+      <div class="nhsuk-hint nhsuk-u-font-size-16">
+        v1 - v13 iterations 
+        <a href="https://app.mural.co/t/nhsdigital8118/m/nhsdigital8118/1657618756043/5a671dce6cfac32ce5d21e90586d80618a2dd132?sender=ue98d13684b46ae3295c88630" target="_blank">can be found in this mural.
+        </a>
+      </div>
+
+
+    </div> <!-- /. nhsuk-grid-column-two-thirds -->
+
+      <div class="nhsuk-grid-column-full">
+
+      <table role="table" class="nhsuk-table-responsive">
+
+        <!-- Table Headers -->
+
+        <thead role="rowgroup" class="nhsuk-table__head">
+          <tr role="row">
+            <th role="columnheader" class="" scope="col">
+              Version
+            </th>
+            <th role="columnheader" class="" scope="col">
+              Status
+            </th>
+            <th role="columnheader" class="" scope="col">
+              Notes
+            </th>
+            <th role="columnheader" class="" scope="col">
+              Action
+            </th>
+          </tr>
+        </thead> <!-- /. nhsuk-table__head -->
+
+        <!-- Table Rows -->
+
+        <tbody class="nhsuk-table__body">
+
+          <!-- Row 1 -->
+
+          <tr role="row" class="nhsuk-table__row">
+
+            <td role="cell" class="nhsuk-table__cell">
+              <span class="nhsuk-table-responsive__heading">Version</span>v14
+            </td>
+
+            <td role="cell" class="nhsuk-table__cell">
+              <span class="nhsuk-table-responsive__heading">Status</span>
+              <strong class="nhsuk-tag nhsuk-tag--green">
+                Research complete
+              </strong>
+            </td>
+
+            <td role="cell" class="nhsuk-table__cell">
+              <span class="nhsuk-table-responsive__heading">Notes</span>
+              <a href="#">Research summary (TBC)</a>
+            </td>
+
+            <td role="cell" class="nhsuk-table__cell">
+              <span class="nhsuk-table-responsive__heading">Action</span>
+              <a href="v14/intro">Launch</a>
+            </td>
+
+          </tr> <!-- /. nhsuk-table__row -->
+
+        </tbody> <!-- /. nhsuk-table__body -->
+      </table> <!-- /. nhsuk-table-responsive -->
+    </div> <!-- /. nhsuk-grid-column-full -->
+  </div> <!-- /. nhsuk-grid-row -->
+{% endblock %}

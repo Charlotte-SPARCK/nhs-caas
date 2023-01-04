@@ -1,0 +1,129 @@
+{% extends 'custom-layouts/caas-header-logged-in.html' %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block pageTitle %}
+  CaaS prototype
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block outerContent %}
+  {{ backLink({
+    "href": "../v14/cohort-manager",
+    "text": "Back",
+    "classes": "nhsuk-u-margin-top-4 nhsuk-u-margin-bottom-0"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <form action="add-cohort-details-answer" method="POST">
+      <div class="nhsuk-grid-column-two-thirds">
+        
+          <h1 class="nhsuk-heading-xl">Add cohort details</h1>
+
+          <p class="nhsuk-body-l">Add some inital details to begin creating a cohort. The cohort name is the minimum amount of detail you can enter before saving and exiting.</p>
+
+          <!-- Name of Cohort-->
+
+          <div class="nhsuk-form-group">
+            <label class="nhsuk-label" for="name-of-cohort-hint-text">
+              Name of cohort
+            </label>
+            <div class="nhsuk-hint" id="name-of-cohort-hint-text">
+              For example, Vaccination Influenza Winter 2022
+            </div>
+            <input class="nhsuk-input nhsuk-u-width-full" id="name-of-cohort" name="name-of-cohort" type="text" 
+            value="{{ data['name-of-cohort'] }}" aria-describedby="name-of-cohort">
+          </div>
+
+          <!-- Details -->
+
+          <details class="nhsuk-details">
+            <summary class="nhsuk-details__summary">
+              <span class="nhsuk-details__summary-text">
+                More information
+              </span>
+            </summary>
+            <div class="nhsuk-details__text">
+              <p>Give your cohort a meaningful name so it is clear what it is.</p>
+              <p>Do not use acronyms or your own name. This name could be viewed by other people.</p>
+              <p>It may be useful to include details such as:</p>
+              <ul>
+                <li>the purpsoe of the cohort (for example, vaccinations or screening)</li>
+                <li>the condition it includes (for example, influenza)</li>
+                <li>the timeframe of the cohort (for example, Winter 2022)</li>
+              </ul>
+            </div>
+          </details>
+
+          <!-- Summary of Cohort -->
+
+          <div class="nhsuk-form-group">
+            <label class="nhsuk-label" for="summary-of-cohort">
+              Summary of cohort
+            </label>
+            <div class="nhsuk-hint" id="summary-of-cohort-hint">
+              Outline why the cohort needs to be created and what it will be used for.
+            </div>
+            <textarea class="nhsuk-textarea" id="summary-of-cohort" name="summary-of-cohort" rows="5" aria-describedby="summary-of-cohort">{{ data['summary-of-cohort'] }}</textarea>
+          </div>
+
+          <!-- Details -->
+
+          <details class="nhsuk-details">
+            <summary class="nhsuk-details__summary">
+              <span class="nhsuk-details__summary-text">
+                More information
+              </span>
+            </summary>
+            <div class="nhsuk-details__text">
+              <p>The summary should be very high level and descriptive so at a glance it is obvious what the cohort is.</p>
+              <p>The description should include:</p>
+              <ul>
+                <li>one line overview</li>
+                <li>more detail surrounding the purpose</li>
+              </ul>
+              <p>For example, the Vaccinations Influenza Winter 2022 cohort provides direct protection to those who are at higher risk of influenza. It aims to reduce transmission to all age groups through the vaccination of children.</p>
+            </div>
+          </details>
+
+          <!-- Name of Commissioner -->
+
+          <div class="nhsuk-form-group">
+            <label class="nhsuk-label" for="name-of-commissioner">
+              Name of commissioner
+            </label>
+            <div class="nhsuk-hint" id="name-of-commissioner-hint-text">
+              The commissioning body, or organisation and the team involved.
+            </div>
+            <input class="nhsuk-input nhsuk-u-width-full" id="name-of-commissioner" name="name-of-commissioner" type="text" aria-describedby="name-of-commissioner" value="{{ data['name-of-commissioner'] }}">
+          </div>
+
+          <!-- Name of Author -->
+
+          <div class="nhsuk-form-group">
+            <label class="nhsuk-label" for="name-of-author">
+              Name of author
+            </label>
+            <div class="nhsuk-hint" id="name-of-commissioner-hint-text">
+              The person who is building the cohort.
+            </div>
+            <input class="nhsuk-input nhsuk-u-width-full" id="name-of-author" name="name-of-author" type="text" aria-describedby="name-of-author" value="{{ data['name-of-author'] }}">
+          </div>
+
+          <button class="nhsuk-button" type="submit">
+            Continue
+          </button>
+
+          <a href="#">
+            <p>Save and exit</p>
+          </a>
+
+      </div> <!-- /. nhsuk-grid-column-two-thirds -->
+    </form> <!-- /. form -->
+  </div> <!-- /. nhsuk-grid-row -->
+
+{% endblock %}

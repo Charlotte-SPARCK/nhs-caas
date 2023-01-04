@@ -1,0 +1,65 @@
+{% extends 'custom-layouts/caas-header.html' %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block pageTitle %}
+  CaaS prototype
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block outerContent %}
+  {{ backLink({
+    "href": "/cohort-builder/index",
+    "text": "Back",
+    "classes": "nhsuk-u-margin-top-4 nhsuk-u-margin-bottom-0"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-full">
+
+      <form action="#" method="POST">
+      
+        <h1 class="nhsuk-heading-xl">Cohort manager</h1>
+
+        <p class="nhsuk-body-l">The cohort manager allows you to edit and clone existing cohorts, or build new ones using clinically assured condition groups. Cohorts can then be submitted for assurance or for publishing.</p>
+
+        <!-- Cards -->
+
+        <ul class="nhsuk-grid-row nhsuk-card-group">
+          <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+        
+            <div class="nhsuk-card nhsuk-card--clickable">
+              <div class="nhsuk-card__content">
+                <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                  <a class="nhsuk-card__link" href="intro">Build cohorts</a>
+                </h2>
+                <p class="nhsuk-card__description">Edit, clone or build a new cohort. Submit cohorts for assurance publishing.</p>
+              </div>
+            </div>
+        
+          </li> <!-- /. nhsuk-grid-column-one-half -->
+
+          <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+        
+            <div class="nhsuk-card nhsuk-card--clickable">
+              <div class="nhsuk-card__content">
+                <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                  <a class="nhsuk-card__link" href="#">Assure cohorts</a>
+                </h2>
+                <p class="nhsuk-card__description">Manage cohorts that need assurance and approval.</p>
+              </div>
+            </div>
+        
+          </li> <!-- /. nhsuk-grid-column-one-half -->
+        </ul> <!-- /. nhsuk-grid-row -->
+
+      </form> <!-- /. form -->
+    </div> <!-- /. nhsuk-grid-column-full -->
+  </div> <!-- /. nhsuk-grid-row -->
+
+{% endblock %}
