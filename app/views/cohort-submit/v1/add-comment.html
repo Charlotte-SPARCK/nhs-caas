@@ -1,0 +1,93 @@
+{% extends 'custom-layouts/caas-header-logged-in.html' %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block pageTitle %}
+  CaaS prototype
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block outerContent %}
+  {{ backLink({
+    "href": "../v1/cohort-editor",
+    "text": "Back",
+    "classes": "nhsuk-u-margin-top-4 nhsuk-u-margin-bottom-0"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  
+<div class="nhsuk-grid-row">
+  <form action="check-cohort" method="POST">
+    <div class="nhsuk-grid-column-two-thirds">
+
+        
+        <p class="nhsuk-caption-l">Vaccinations Influenza Spring 2023</p>
+        <h1 class="nhsuk-heading-xl">Add a comment</h1>
+
+
+
+        <!-- Add comment -->
+
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="add-comment">
+            Provide a reason for the submission of this cohort
+          </label>
+          <textarea class="nhsuk-textarea" id="add-comment" name="add-comment" rows="5" aria-describedby="add-comment"></textarea>
+        </div>
+
+        <p>Before you continue, please check the boxes below to confirm:</p>
+
+
+          <div class="nhsuk-form-group">
+        
+            <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+              
+              <div class="nhsuk-checkboxes">
+        
+                <div class="nhsuk-checkboxes__item">
+                  <input class="nhsuk-checkboxes__input" id="submission-1" name="submission-1" type="checkbox" value="Clinical Safety documentation has been signed off" {{ checked("submission-1", "Clinical Safety documentation has been signed off") }}>
+                  <label class="nhsuk-label nhsuk-checkboxes__label" for="submission-1">
+                    Clinical Safety documentation has been signed off
+                  </label>
+                </div>
+
+                <div class="nhsuk-checkboxes__item">
+                  <input class="nhsuk-checkboxes__input" id="submission-2" name="submission-2" type="checkbox" value="Clinical Safety is board approved" {{ checked("submission-2", "Clinical Safety is board approved") }}>
+                  <label class="nhsuk-label nhsuk-checkboxes__label" for="submission-1">
+                    Clinical Safety is board approved
+                  </label>
+                </div>
+        
+                <div class="nhsuk-checkboxes__item">
+                  <input class="nhsuk-checkboxes__input" id="submission-3" name="submission-3" type="checkbox" value="IG documentation has been approved" {{ checked("submission-3", "IG documentation has been approved") }}>
+                  <label class="nhsuk-label nhsuk-checkboxes__label" for="submission-3">
+                    IG documentation has been approved
+                  </label>
+                </div>
+        
+                <div class="nhsuk-checkboxes__item">
+                  <input class="nhsuk-checkboxes__input" id="submission-4" name="submission-4" type="checkbox" value="Live services has been signed off" {{ checked("submission-4", "Live services has been signed off") }}>
+                  <label class="nhsuk-label nhsuk-checkboxes__label" for="submission-4">
+                    Live services has been signed off
+                  </label>
+                </div>
+        
+              </div>
+            </fieldset>
+        
+          </div>
+        
+
+          <button class="nhsuk-button" type="submit">
+            Review and submit
+          </button>
+          <p><a href="cohort-editor">Save and exit</a></p>
+
+        </div> <!-- /. nhsuk-grid-column-two-thirds -->
+      </form> <!-- /. form -->
+    </div> <!-- /. nhsuk-grid-row -->
+
+{% endblock %}

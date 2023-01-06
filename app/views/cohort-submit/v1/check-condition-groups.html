@@ -1,0 +1,136 @@
+{% extends 'custom-layouts/caas-header-logged-in.html' %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block pageTitle %}
+  CaaS prototype
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block outerContent %}
+  {{ backLink({
+    "href": "cohort-editor",
+    "text": "Back",
+    "classes": "nhsuk-u-margin-top-4 nhsuk-u-margin-bottom-0"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+        <h1 class="nhsuk-heading-xl">Check your clinically assured condition groups</h1>
+        <p class="nhsuk-body-l">View or remove condition groups.</p>
+        <form action="add-condition-group" method="POST">
+          <button class="nhsuk-button nhsuk-button--secondary" type="submit">
+            Add a condition group
+          </button>
+        </form>
+    </div> <!-- /. nhsuk-grid-column-two-thirds -->
+
+    <div class="nhsuk-grid-column-full">
+      <table class="nhsuk-table">
+        <thead role="rowgroup" class="nhsuk-table__head">
+          <tr role="row">
+            <th role="columnheader" class="" scope="col">
+              Condition group
+            </th>
+            <th role="columnheader" class="" scope="col">
+              Rules
+            </th>
+            <th role="columnheader" class="" scope="col">
+              Actions
+            </th>
+          </tr>
+        </thead>
+        <tbody class="nhsuk-table__body">
+          <tr role="row" class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">
+              Chronic respiratory disease
+            </td>
+            <td class="nhsuk-table__cell">
+              <details class="nhsuk-details">
+                <summary class="nhsuk-details__summary">
+                  <span class="nhsuk-details__summary-text">
+                    7 clinical rules applied
+                  </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                  <ul class="nhsuk-list nhsuk-list--bullet">
+                    <li>asthma diagnosis and Asthma treatment (inhaled steroids)</li>
+                    <li>asthma diagnosis and 2x asthma treatments (oral steroids). In previous 24 months</li>
+                    <li>patient has CRD</li>
+                    <li>patient has lower respiratory tract disease</li>
+                    <li>asplenia or dysfunction of the spleen between the ages of 5 and 15</li>
+                    <li>emergency hospital admission due to Asthma</li>
+                    <li>patient has a steroid prescription</li>
+                  </ul>
+                </div>
+              </details>
+            </td>
+            <td class="nhsuk-table__cell ">
+              <a href="#" onclick="DeleteRow()">Remove</a>
+            </td>
+          </tr>
+          <tr role="row" class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">Chronic heart disease</td>
+            <td class="nhsuk-table__cell">
+              <details class="nhsuk-details">
+                <summary class="nhsuk-details__summary">
+                  <span class="nhsuk-details__summary-text">
+                    1 clinical rules applied
+                  </span>
+                </summary>
+              </details>
+            </td>
+            <td class="nhsuk-table__cell ">
+              <a href="#" onclick="DeleteRow()">Remove</a>
+            </td>
+          </tr>
+          <tr role="row" class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">Chronic kidney disease</td>
+            <td class="nhsuk-table__cell">
+              <details class="nhsuk-details">
+                <summary class="nhsuk-details__summary">
+                  <span class="nhsuk-details__summary-text">
+                    2 clinical rules applied
+                  </span>
+                </summary>
+              </details>
+            </td>
+            <td class="nhsuk-table__cell ">
+              <a href="#" onclick="DeleteRow()">Remove</a>
+            </td>
+          </tr>
+          <tr role="row" class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">Chronic liver disease</td>
+            <td class="nhsuk-table__cell"></td>
+            <td class="nhsuk-table__cell ">
+              <a href="#" style="margin-right: 15px;" onclick="DeleteRow()">Remove</a>
+            </td>
+          </tr>
+          <tr role="row" class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">Chronic neurological disease</td>
+            <td class="nhsuk-table__cell"></td>
+            <td class="nhsuk-table__cell ">
+              <a href="#" onclick="DeleteRow()">Remove</a>
+            </td>
+          </tr>
+        </tbody> <!-- /. nhsuk-table__body -->
+      </table> <!-- /. nhsuk-tables -->
+
+      <form action="cohort-editor" method="POST">
+        <button class="nhsuk-button" type="submit">
+          Save and return
+        </button>
+        <p>
+          <a href="cohort-editor">Cancel</a>
+        </p>
+      </form> <!-- /. form -->
+    
+    </div> <!-- /. nhsuk-grid-column-full -->
+</div> <!-- /. nhsuk-grid-row -->
+
+{% endblock %}

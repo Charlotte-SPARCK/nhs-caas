@@ -1,0 +1,47 @@
+{% extends 'custom-layouts/caas-header-logged-in.html' %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+
+{% block pageTitle %}
+  CaaS prototype
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block outerContent %}
+
+{% endblock %}
+
+{% block content %}
+  
+<div class="nhsuk-grid-row">
+  <form action="cohort-manager-submitted" method="POST">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <div class="nhsuk-panel">
+        <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-2">Cohort submitted</h1>
+        <p class="nhsuk-body-l nhsuk-u-margin-bottom-2">Vaccinations Influenza Spring 2023 has been submitted for assurance</p>
+      </div>
+
+      <div class="nhsuk-inset-text">
+        <p><b>Last edited:</b> 10 January 2023 <br>
+        <b>Date created:</b> 14 December 2022<br>
+        <b>Cohort contributors:</b> Jane Smith, John Smith</p>
+      </div>
+
+      <h2 class="nhsuk-heading-m">What happens next</h2>
+      <p>The cohort is in the process of being reviewed. You'ßll receive an email notification when the status of your cohort has been updated.</p>
+          
+
+          <button class="nhsuk-button" type="submit">
+            Return to cohort manager
+          </button>
+
+        </div> <!-- /. nhsuk-grid-column-two-thirds -->
+      </form> <!-- /. form -->
+    </div> <!-- /. nhsuk-grid-row -->
+
+{% endblock %}

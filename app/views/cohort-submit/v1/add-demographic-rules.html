@@ -1,0 +1,459 @@
+{% extends 'custom-layouts/caas-header-logged-in.html' %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block pageTitle %}
+  CaaS prototype
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block outerContent %}
+  {{ backLink({
+    "href": "cohort-editor",
+    "text": "Back",
+    "classes": "nhsuk-u-margin-top-4 nhsuk-u-margin-bottom-0"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <form action="cohort-editor" method="POST">
+      <div class="nhsuk-grid-column-two-thirds">
+        
+          <h1 class="nhsuk-heading-xl">Add demographic rules</h1>
+
+          <p class="nhsuk-body-l">Demographic rules are applied to the whole cohort. All demographic information is from the <a href="#">Personal Demographic Service (PDS)</a>.</p>
+
+          <!-- Age -->
+
+          <h2 class="nhsuk-heading-l">Age</h2>
+          <p>
+            You can add the minimum or maximum age for your cohort if it has an age demographic rule. You may allow for no minimum or maximum age by selecting "Not applicable". Selecting “Not applicable” in both ranges will not apply an age rule to your cohort.
+          </p>
+
+          <!-- Minimum Age -->
+
+          <h3 class="nhsuk-heading-m">Minimum age</h3>
+
+          <div class="nhsuk-form-group">
+            <label class="nhsuk-label" for="age-min-years">
+              Years
+            </label>
+            <input class="nhsuk-input nhsuk-u-width-one-quarter" id="age-min-years" name="age-min-years" type="number" aria-describedby="age-min-years" value="{{ data['age-min-years'] }}">
+          </div>
+
+          <div class="nhsuk-form-group">
+            <label class="nhsuk-label" for="age-min-months">
+              Months
+            </label>
+            <input class="nhsuk-input nhsuk-u-width-one-quarter" id="age-min-months" name="age-min-months" type="number" aria-describedby="age-min-months" value="{{ data['age-min-months'] }}">
+          </div>
+
+          <!-- Not Applicable -->
+
+          <div class="nhsuk-form-group">
+            <fieldset class="nhsuk-fieldset">
+              <div class="nhsuk-checkboxes">
+  
+                <div class="nhsuk-checkboxes__item">
+                  <input class="nhsuk-checkboxes__input" id="not-applicable" name="not-applicable-min-age" type="checkbox" 
+                  value="Not applicable" {{ checked("not-applicable-min-age", "Not applicable") }} checked> 
+                  <label class="nhsuk-label nhsuk-checkboxes__label" for="not-applicable">
+                    Not applicable
+                  </label>
+                </div>
+
+              </div> <!-- /. nhsuk-checkboxes -->
+            </fieldset> <!-- /. nhsuk-fieldset -->
+          </div> <!-- /. nhsuk-form-group -->
+
+          <!-- Maximum Age  -->
+
+          <h3 class="nhsuk-heading-m">Maximum age</h3>
+
+          <div class="nhsuk-form-group">
+            <label class="nhsuk-label" for="age-max-years">
+              Years
+            </label>
+            <input class="nhsuk-input nhsuk-u-width-one-quarter" id="age-max-years" name="age-max-years" type="number" aria-describedby="age-max-years" value="{{ data['age-max-years'] }}">
+          </div>
+
+          <div class="nhsuk-form-group">
+            <label class="nhsuk-label" for="age-max-months">
+              Months
+            </label>
+            <input class="nhsuk-input nhsuk-u-width-one-quarter" id="age-max-months" name="age-max-months" type="number" aria-describedby="age-max-months" value="{{ data['age-max-months'] }}">
+          </div>
+
+          <!-- Not Applicable -->
+
+          <div class="nhsuk-form-group">
+            <fieldset class="nhsuk-fieldset">
+              <div class="nhsuk-checkboxes">
+  
+                <div class="nhsuk-checkboxes__item">
+                  <input class="nhsuk-checkboxes__input" id="not-applicable-years" name="not-applicable-max-age" type="checkbox" 
+                  value="Not applicable" {{ checked("not-applicable-max-age", "Not applicable") }} checked>
+                  <label class="nhsuk-label nhsuk-checkboxes__label" for="not-applicable-years">
+                    Not applicable
+                  </label>
+                </div>
+
+              </div> <!-- /. nhsuk-checkboxes -->
+            </fieldset> <!-- /. nhsuk-fieldset -->
+          </div> <!-- /. nhsuk-form-group -->
+
+          <hr>
+
+          <!-- Location -->
+
+          <h2 class="nhsuk-heading-l">Location</h2>
+
+          <p>The default option is everyone registered with a GP in England.</p>
+
+          <hr>
+
+          <!-- Sex registered at birth -->
+
+          <h2 class="nhsuk-heading-l">Sex registered at birth</h2>
+
+          <p>Select 'Not applicable' if sex registered at birth should not be included in the demographic rules.</p>
+
+          <div class="nhsuk-form-group">
+
+            <fieldset class="nhsuk-fieldset">
+              <div class="nhsuk-radios">
+          
+                <div class="nhsuk-radios__item">
+                  <input class="nhsuk-radios__input" id="sex-at-birth-female" name="sex-at-birth" type="radio" 
+                  value="Female" {{ checked("sex-at-birth", "Female") }} onclick="deSelectCheckbox();">
+                  <label class="nhsuk-label nhsuk-radios__label" for="sex-at-birth-female">
+                    Female
+                  </label>
+                </div>
+          
+                <div class="nhsuk-radios__item">
+                  <input class="nhsuk-radios__input" id="sex-at-birth-male" name="sex-at-birth" type="radio" 
+                  value="Male" {{ checked("sex-at-birth", "Male") }} onclick="deSelectCheckbox();">
+                  <label class="nhsuk-label nhsuk-radios__label" for="sex-at-birth-male">
+                    Male
+                  </label>
+                </div>
+
+                <div class="nhsuk-radios__divider">or</div>
+                
+              </div> <!-- /. nhsuk-radios -->
+
+              <div class="nhsuk-checkboxes">
+  
+                <div class="nhsuk-checkboxes__item">
+                  <input class="nhsuk-checkboxes__input" id="not-applicable-sex" name="not-applicable-sex" type="checkbox"
+                  value="Not applicable" {{ checked("not-applicable-sex", "Not applicable") }} checked onclick="deSelectRadio();">
+                  <label class="nhsuk-label nhsuk-checkboxes__label" for="not-applicable-years">
+                    Not applicable
+                  </label>
+                </div>
+
+              </div> <!-- /. nhsuk-checkboxes -->
+            </fieldset> <!-- /. nhsuk-fieldset -->
+          </div> <!-- /. nhsuk-form-group -->
+
+          <hr>
+
+          <!-- Ethnicity -->
+
+          <h2 class="nhsuk-heading-l">Ethnicity</h2>
+
+          <p>Select all relelvant etnicities. You can select multiple ethincities.</p>
+
+            <div class="nhsuk-form-group">
+              <fieldset class="nhsuk-fieldset">
+                <div class="nhsuk-checkboxes nhsuk-checkboxes--conditional">
+
+                  <!-- Asian or Asian British -->
+          
+                  <div class="nhsuk-checkboxes__item">
+                    <input class="nhsuk-checkboxes__input" id="asian-british" name="ethnicity" type="checkbox"
+                    value="Asian or Asian British" {{ checked("ethnicity", "Asian or Asian British") }} checked aria-controls="ethnicity-asian" aria-expanded="false">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="asian-british">
+                      Asian or Asian British
+                    </label>
+                  </div>
+          
+                  <div class="nhsuk-checkboxes__conditional nhsuk-checkboxes__conditional--hidden" id="ethnicity-asian" name="asian-checkboxes">
+                    <div class="nhsuk-form-group">
+
+                      <!-- Asian or Asian British - Indian -->
+
+                      <div class="nhsuk-checkboxes__item">
+                        <input class="nhsuk-checkboxes__input" id="ethnicity-asian-1" name="ethnicity-asian-1" type="checkbox" value="Asian or Asian British - Indian" {{ checked("ethnicity-asian-1", "Asian or Asian British - Indian") }} checked>
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="ethnicity-asian-1">
+                          Indian
+                        </label>
+                      </div>
+
+                      <!-- Asian or Asian British - Pakistani -->
+
+                      <div class="nhsuk-checkboxes__item">
+                        <input class="nhsuk-checkboxes__input" id="ethnicity-asian-2" name="ethnicity-asian-2" type="checkbox" value="Asian or Asian British - Pakistani" {{ checked("ethnicity-asian-2", "Asian or Asian British - Pakistani") }} checked>
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="ethnicity-asian-2">
+                          Pakistani
+                        </label>
+                      </div>
+
+                      <!-- Asian or Asian British - Bangladeshi -->
+
+                      <div class="nhsuk-checkboxes__item">
+                        <input class="nhsuk-checkboxes__input" id="ethnicity-asian-3" name="ethnicity-asian-3" type="checkbox" value="Asian or Asian British - Bangladeshi" {{ checked("ethnicity-asian-3", "Asian or Asian British - Bangladeshi") }} checked>
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="ethnicity-asian-3">
+                          Bangladeshi
+                        </label>
+                      </div>
+
+                      <!-- Asian or Asian British - Chinese -->
+
+                      <div class="nhsuk-checkboxes__item">
+                        <input class="nhsuk-checkboxes__input" id="ethnicity-asian-4" name="ethnicity-asian-4" type="checkbox" value="Asian or Asian British - Chinese" {{ checked("ethnicity-asian-4", "Asian or Asian British - Chinese") }} checked>
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="ethnicity-asian-4">
+                          Chinese
+                        </label>
+                      </div>
+
+                      <!-- Asian or Asian British - Other -->
+
+                      <div class="nhsuk-checkboxes__item">
+                        <input class="nhsuk-checkboxes__input" id="ethnicity-asian-5" name="ethnicity-asian-5" type="checkbox" value="Asian or Asian British - Other" {{ checked("ethnicity-asian-5", "Asian or Asian British - Other") }} checked>
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="ethnicity-asian-5">
+                          Any other Asian background
+                        </label>
+                      </div>
+
+                    </div> <!-- /. nhsuk-form-group -->
+                  </div> <!-- /. nhsuk-checkboxes__conditional -->
+
+                  <!-- Black, Black British, Caribbean or African -->
+          
+                  <div class="nhsuk-checkboxes__item">
+                    <input class="nhsuk-checkboxes__input" id="black-british" name="ethnicity" type="checkbox" 
+                    value="Black British" {{ checked("ethnicity", "Black British") }} checked aria-controls="ethnicity-black" aria-expanded="false">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="black-british">
+                      Black, Black British, Caribbean or African
+                    </label>
+                  </div>
+          
+                  <div class="nhsuk-checkboxes__conditional nhsuk-checkboxes__conditional--hidden" id="ethnicity-black">
+                    <div class="nhsuk-form-group">
+
+                      <!-- Black, Black British, Caribbean or African - Caribbean -->
+
+                      <div class="nhsuk-checkboxes__item">
+                        <input class="nhsuk-checkboxes__input" id="ethnicity-black-1" name="ethnicity-black-1" type="checkbox" value="Black or Black British - Caribbean" {{ checked("ethnicity-black-1", "Black or Black British - Caribbean") }} checked>
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="ethnicity-black-1">
+                          Caribbean
+                        </label>
+                      </div>
+
+                      <!-- Black, Black British, Caribbean or African - African -->
+
+                      <div class="nhsuk-checkboxes__item">
+                        <input class="nhsuk-checkboxes__input" id="ethnicity-black-2" name="ethnicity-black-2" type="checkbox" value="Black or Black British - African" {{ checked("ethnicity-black-2", "Black or Black British - African") }} checked>
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="conditional-ethnicity-2">
+                          African
+                        </label>
+                      </div>
+
+                      <!-- Black, Black British, Caribbean or African - Other -->
+
+                      <div class="nhsuk-checkboxes__item">
+                        <input class="nhsuk-checkboxes__input" id="ethnicity-black-3" name="ethnicity-black-3" type="checkbox" value="Black or Black British - Other" {{ checked("ethnicity-black-3", "Black or Black British - Other") }} checked>
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="ethnicity-black-3">
+                          Other Black, Black British, or Caribbean background
+                        </label>
+                      </div>
+
+                    </div> <!-- /. nhsuk-form-group -->
+                  </div> <!-- /. nhsuk-radios__conditional -->
+
+                  <!-- Mixed or multiple ethnic groups -->
+          
+                  <div class="nhsuk-checkboxes__item">
+                    <input class="nhsuk-checkboxes__input" id="mixed" name="ethnicity" type="checkbox"
+                    value="Mixed" {{ checked("ethnicity", "Mixed") }} checked aria-controls="ethnicity-mixed" aria-expanded="false">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="mixed">
+                      Mixed or multiple ethnic groups
+                    </label>
+                  </div>
+          
+                  <div class="nhsuk-checkboxes__conditional nhsuk-checkboxes__conditional--hidden" id="ethnicity-mixed">
+                    <div class="nhsuk-form-group">
+
+                      <!-- Mixed or multiple ethnic groups - White and Black Caribbean -->
+
+                      <div class="nhsuk-checkboxes__item">
+                        <input class="nhsuk-checkboxes__input" id="ethnicity-mixed-1" name="ethnicity-mixed-1" type="checkbox" value="White and Black Caribbean" {{ checked("ethnicity-mixed-1", "White and Black Caribbean") }} checked>
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="ethnicity-mixed-1">
+                          White and Black Caribbean
+                        </label>
+                      </div>
+
+                      <!-- Mixed or multiple ethnic groups - White and Black African -->
+
+                      <div class="nhsuk-checkboxes__item">
+                        <input class="nhsuk-checkboxes__input" id="ethnicity-mixed-2" name="ethnicity-mixed-2" type="checkbox" value="White and Black African" {{ checked("ethnicity-mixed-2", "White and Black African") }} checked>
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="ethnicity-mixed-2">
+                          White and Black African
+                        </label>
+                      </div>
+
+                      <!-- Mixed or multiple ethnic groups - White and Asian -->
+
+                      <div class="nhsuk-checkboxes__item">
+                        <input class="nhsuk-checkboxes__input" id="ethnicity-mixed-3" name="ethnicity-mixed-3" type="checkbox" value="White and Asian" {{ checked("ethnicity-mixed-3", "White and Asian") }} checked>
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="ethnicity-mixed-3">
+                          White and Asian
+                        </label>
+                      </div>
+
+                      <!-- Mixed or multiple ethnic groups - Any other Mixed or multiple background -->
+
+                      <div class="nhsuk-checkboxes__item">
+                        <input class="nhsuk-checkboxes__input" id="ethnicity-mixed-4" name="ethnicity-mixed-4" type="checkbox" value="Any other Mixed or multiple background" {{ checked("ethnicity-mixed-4", "Any other Mixed or multiple background") }} checked>
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="conditional-ethnicity-4">
+                          Other Mixed or multiple background
+                        </label>
+                      </div>
+
+                    </div> <!-- /. nhsuk-form-group -->
+                  </div> <!-- /. nhsuk-radios__conditional -->
+
+                  <!-- White -->
+
+                  <div class="nhsuk-checkboxes__item">
+                    <input class="nhsuk-checkboxes__input" id="white" name="ethnicity" type="checkbox"
+                    value="White" {{ checked("ethnicity", "White") }} checked aria-controls="ethnicity-white" aria-expanded="false">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="white">
+                      White
+                    </label>
+                  </div>
+          
+                  <div class="nhsuk-checkboxes__conditional nhsuk-checkboxes__conditional--hidden" id="ethnicity-white">
+                    <div class="nhsuk-form-group">
+
+                      <!-- White - English,Welsh, Scottish, Nothern Irish or British -->
+
+                      <div class="nhsuk-checkboxes__item">
+                        <input class="nhsuk-checkboxes__input" id="ethnicity-white-1" name="ethnicity-white-1" type="checkbox"  value="English, Welsh, Scottish, Nothern Irish or British" {{ checked("ethnicity-white-1", "English, Welsh, Scottish, Nothern Irish or British") }} checked>
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="ethnicity-white-1">
+                          English, Welsh, Scottish, Nothern Irish or British
+                        </label>
+                      </div>
+
+                      <!-- White - Irish -->
+
+                      <div class="nhsuk-checkboxes__item">
+                        <input class="nhsuk-checkboxes__input" id="ethnicity-white-2" name="ethnicity-white-2" type="checkbox" value="Irish" {{ checked("ethnicity-white-2", "Irish") }} checked>
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="ethnicity-white-2">
+                          Irish
+                        </label>
+                      </div>
+
+                      <!-- White - Gypsy or Irish Traveller -->
+
+                      <div class="nhsuk-checkboxes__item">
+                        <input class="nhsuk-checkboxes__input" id="ethnicity-white-3" name="ethnicity-white-3" type="checkbox" value="Gypsy or Irish Traveller" {{ checked("ethnicity-white-3", "Gypsy or Irish Traveller") }} checked>
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="ethnicity-white-3">
+                          Gypsy or Irish Traveller
+                        </label>
+                      </div>
+
+                      <!-- White - Roma -->
+
+                      <div class="nhsuk-checkboxes__item">
+                        <input class="nhsuk-checkboxes__input" id="ethnicity-white-4" name="ethnicity-white-4" type="checkbox" value="Roma" {{ checked("ethnicity-white-4", "Roma") }} checked>
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="ethnicity-white-4">
+                          Roma
+                        </label>
+                      </div>
+
+                      <!-- White - Any other White background -->
+
+                      <div class="nhsuk-checkboxes__item">
+                        <input class="nhsuk-checkboxes__input" id="ethnicity-white-5" name="ethnicity-white-5" type="checkbox" value="Any other White background" {{ checked("ethnicity-white-5", "Any other White background") }} checked>
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="ethnicity-white-5">
+                          Any other White background
+                        </label>
+                      </div>
+
+                    </div> <!-- /. nhsuk-form-group -->
+                  </div> <!-- /. nhsuk-radios__conditional -->
+
+                  <!-- Other ethnic group -->
+
+                  <div class="nhsuk-checkboxes__item">
+                    <input class="nhsuk-checkboxes__input" id="other" name="ethnicity" type="checkbox" 
+                    value="Other" {{ checked("ethnicity", "Other") }} aria-controls="ethnicity-other" aria-expanded="false" checked>
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="other">
+                      Other ethnic group
+                    </label>
+                  </div>
+          
+                  <div class="nhsuk-checkboxes__conditional nhsuk-checkboxes__conditional--hidden" id="ethnicity-other">
+                    <div class="nhsuk-form-group">
+
+                      <!-- Other - Arab -->
+
+                      <div class="nhsuk-checkboxes__item">
+                        <input class="nhsuk-checkboxes__input" id="ethnicity-other-1" name="ethnicity-other-1" type="checkbox" value="Arab" {{ checked("ethnicity-other-1", "Arab") }} checked>
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="ethnicity-other-1">
+                          Arab
+                        </label>
+                      </div>
+
+                      <!-- Other - Any other ethnic group -->
+
+                      <div class="nhsuk-checkboxes__item">
+                        <input class="nhsuk-checkboxes__input" id="ethnicity-other-2" name="ethnicity-other-2" type="checkbox" value="Other ethnicity" {{ checked("ethnicity-other-2", "Other ethnicity") }} checked>
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="ethnicity-other-2">
+                          Any other ethnic group
+                        </label>
+                      </div>
+                      
+                    </div> <!-- /. nhsuk-form-group -->
+                  </div> <!-- /. nhsuk-radios__conditional -->
+          
+                </div> <!-- /. nhsuk-checkboxes -->
+              </fieldset> <!-- /. nhsuk-fieldset -->
+
+              <div class="nhsuk-checkboxes__divider">or</div>
+
+              <div class="nhsuk-checkboxes">
+
+                <div class="nhsuk-checkboxes__item">
+                  <input class="nhsuk-checkboxes__input" id="all-ethnicity" name="ethnicity" type="checkbox" value="All of the above" {{ checked("all-ethnicity", "All of the above") }} onclick="toggle(this);" checked>
+                  <label class="nhsuk-label nhsuk-checkboxes__label" for="all-ethnicity">
+                    All of the above
+                  </label>
+                </div> <!-- /. nhsuk-checkboxes__item -->
+
+              </div> <!-- /. nhsuk-checkboxes -->
+            </div> <!-- /. nhsuk-form-group -->
+
+            <!-- 
+              <p>If the demographic rule you need isn't here, <a href="#">requst a new one</a>.</p>
+            -->
+
+            <button class="nhsuk-button" type="submit">
+              Save and return
+            </button>
+  
+            <a href="cohort-editor">
+              <p>Cancel</p>
+            </a>
+
+        </div> <!-- /. nhsuk-grid-column-two-thirds -->
+    </form> <!-- /. form -->
+  </div> <!-- /. nhsuk-grid-row -->
+
+{% endblock %}

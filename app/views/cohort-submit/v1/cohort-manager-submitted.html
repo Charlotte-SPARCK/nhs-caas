@@ -1,0 +1,92 @@
+{% extends 'custom-layouts/caas-header-logged-in.html' %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block pageTitle %}
+  CaaS prototype
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block outerContent %}
+
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <form action="#" method="POST">
+      <div class="nhsuk-grid-column-two-thirds">
+
+        <h1 class="nhsuk-heading-xl">Cohort manager</h1>
+        <p class="nhsuk-body-l">Use the cohort manager to create a new cohort or edit a previous draft.</p>
+
+        <p>To build a new cohort you'll need to provide:</p>
+        <ul class="nhsuk-list nhsuk-list--bullet">
+          <li>cohort details</li>
+          <li>demographic rules</li>
+          <li>condition groups</li>
+        </ul>
+
+        <button class="nhsuk-button" type="submit">
+          Build a cohort
+        </button>
+
+      </div> <!-- /. nhsuk-grid-column-two-thirds -->
+    </form> <!-- /. form -->
+  </div> <!-- /. nhsuk-grid-row -->
+
+  <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-full">
+
+      <table role="table" class="nhsuk-table-responsive">
+
+        <!-- Table Headers -->
+
+        <thead role="rowgroup" class="nhsuk-table__head">
+          <tr role="row">
+            <th role="columnheader" class="" scope="col">
+              Cohort
+            </th>
+            <th role="columnheader" class="" scope="col">
+              Status
+            </th>
+            <th role="columnheader" class="" scope="col">
+              Action
+            </th>
+          </tr>
+        </thead> <!-- /. nhsuk-table__head -->
+
+        <!-- Table Rows -->
+
+        <tbody class="nhsuk-table__body">
+
+          <!-- Row 1 -->
+
+          <tr role="row" class="nhsuk-table__row">
+
+            <td role="cell" class="nhsuk-table__cell">
+              <span class="nhsuk-table-responsive__heading">Cohort</span>
+              Vaccinations Influenza Spring 2023
+            </td>
+
+            <td role="cell" class="nhsuk-table__cell">
+              <span class="nhsuk-table-responsive__heading">Status</span>
+              <strong class="nhsuk-tag nhsuk-tag--grey">
+                Submitted for approval
+              </strong>
+            </td>
+
+            <td role="cell" class="nhsuk-table__cell">
+              <span class="nhsuk-table-responsive__heading">Action</span>
+              <a href="review-cohort">View</a>
+            </td>
+
+          </tr> <!-- /. nhsuk-table__row -->
+
+        </tbody> <!-- /. nhsuk-table__body -->
+      </table> <!-- /. nhsuk-table-responsive -->
+    </div> <!-- /. nhsuk-grid-column-full -->
+  </div> <!-- /. nhsuk-grid-row -->
+
+{% endblock %}
